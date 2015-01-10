@@ -34,6 +34,11 @@
 	"mov.d %["#_D"h], %["#_d"h] \n\t"                   \
 	"pshufh %["#_D"l], %["#_d"l], %["#_s"] \n\t"
 
+/* SSE: psllw */
+#define _mm_psllh(_D, _d, _s)                               \
+	"psllh %["#_D"h], %["#_d"h], %["#_s"] \n\t"         \
+	"psllh %["#_D"l], %["#_d"l], %["#_s"] \n\t"
+
 /* SSE: pslld */
 #define _mm_psllw(_D, _d, _s)                               \
 	"psllw %["#_D"h], %["#_d"h], %["#_s"] \n\t"         \
