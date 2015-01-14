@@ -44,10 +44,41 @@
 	"psllw %["#_D"h], %["#_d"h], %["#_s"] \n\t"         \
 	"psllw %["#_D"l], %["#_d"l], %["#_s"] \n\t"
 
+/* SSE: psllq */
+#define _mm_pslld(_D, _d, _s)                               \
+	"dsll %["#_D"h], %["#_d"h], %["#_s"] \n\t"          \
+	"dsll %["#_D"l], %["#_d"l], %["#_s"] \n\t"
+
+/* SSE: pslldq */
+#define _mm_psllq(_D, _d, _s, _s64, _tf)                    \
+	"subu %["#_tf"], %["#_s64"], %["#_s"] \n\t"         \
+	"dsrl %["#_tf"], %["#_d"l], %["#_tf"] \n\t"         \
+	"dsll %["#_D"h], %["#_d"h], %["#_s"] \n\t"          \
+	"dsll %["#_D"l], %["#_d"l], %["#_s"] \n\t"          \
+	"or %["#_D"h], %["#_D"h], %["#_tf"] \n\t"
+
+/* SSE: psrlw */
+#define _mm_psrlh(_D, _d, _s)                               \
+	"psrlh %["#_D"h], %["#_d"h], %["#_s"] \n\t"         \
+	"psrlh %["#_D"l], %["#_d"l], %["#_s"] \n\t"
+
 /* SSE: psrld */
 #define _mm_psrlw(_D, _d, _s)                               \
 	"psrlw %["#_D"h], %["#_d"h], %["#_s"] \n\t"         \
 	"psrlw %["#_D"l], %["#_d"l], %["#_s"] \n\t"
+
+/* SSE: psrlq */
+#define _mm_psrld(_D, _d, _s)                               \
+	"dsrl %["#_D"h], %["#_d"h], %["#_s"] \n\t"          \
+	"dsrl %["#_D"l], %["#_d"l], %["#_s"] \n\t"
+
+/* SSE: psrldq */
+#define _mm_psrlq(_D, _d, _s, _s64, _tf)                    \
+	"subu %["#_tf"], %["#_s64"], %["#_s"] \n\t"         \
+	"dsll %["#_tf"], %["#_d"h], %["#_tf"] \n\t"         \
+	"dsrl %["#_D"h], %["#_d"h], %["#_s"] \n\t"          \
+	"dsrl %["#_D"l], %["#_d"l], %["#_s"] \n\t"          \
+	"or %["#_D"l], %["#_D"l], %["#_tf"] \n\t"
 
 /* SSE: psrad */
 #define _mm_psraw(_D, _d, _s)                               \
@@ -58,6 +89,16 @@
 #define _mm_paddw(_D, _d, _s)                               \
 	"paddw %["#_D"h], %["#_d"h], %["#_s"h] \n\t"        \
 	"paddw %["#_D"l], %["#_d"l], %["#_s"l] \n\t"
+
+/* SSE: paddq */
+#define _mm_paddd(_D, _d, _s)                               \
+	"dadd %["#_D"h], %["#_d"h], %["#_s"h] \n\t"         \
+	"dadd %["#_D"l], %["#_d"l], %["#_s"l] \n\t"
+
+/* SSE: psubd */
+#define _mm_psubw(_D, _d, _s)                               \
+	"psubw %["#_D"h], %["#_d"h], %["#_s"h] \n\t"        \
+	"psubw %["#_D"l], %["#_d"l], %["#_s"l] \n\t"
 
 /* SSE: pmaxub */
 #define _mm_pmaxub(_D, _d, _s)                              \
@@ -73,6 +114,11 @@
 #define _mm_pmulhh(_D, _d, _s)                              \
 	"pmulhh %["#_D"h], %["#_d"h], %["#_s"h] \n\t"       \
 	"pmulhh %["#_D"l], %["#_d"l], %["#_s"l] \n\t"
+
+/* SSE: pmuludq */
+#define _mm_pmuluw(_D, _d, _s)                              \
+	"pmuluw %["#_D"h], %["#_d"h], %["#_s"h] \n\t"       \
+	"pmuluw %["#_D"l], %["#_d"l], %["#_s"l] \n\t"
 
 /* SSE: packsswb */
 #define _mm_packsshb(_D, _d, _s, _t)			    \
