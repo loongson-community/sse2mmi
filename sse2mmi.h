@@ -18,12 +18,12 @@
 	"punpcklwd %["#_D"l], %["#_D"l], %["#_t"] \n\t"
 
 #define _mm_or(_D, _d, _s)                                  \
-	"or %["#_D"h], %["#_D"h], %["#_D"h] \n\t"           \
-	"or %["#_D"l], %["#_D"l], %["#_D"l] \n\t"
+	"or %["#_D"h], %["#_d"h], %["#_s"h] \n\t"           \
+	"or %["#_D"l], %["#_d"l], %["#_s"l] \n\t"
 
 #define _mm_xor(_D, _d, _s)                                 \
-	"xor %["#_D"h], %["#_D"h], %["#_D"h] \n\t"          \
-	"xor %["#_D"l], %["#_D"l], %["#_D"l] \n\t"
+	"xor %["#_D"h], %["#_d"h], %["#_s"h] \n\t"          \
+	"xor %["#_D"l], %["#_d"l], %["#_s"l] \n\t"
 
 #define _mm_and(_D, _d, _s)                                 \
 	"and %["#_D"h], %["#_d"h], %["#_s"h] \n\t"          \
