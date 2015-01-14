@@ -34,22 +34,22 @@
 	"mov.d %["#_D"h], %["#_d"h] \n\t"                   \
 	"pshufh %["#_D"l], %["#_d"l], %["#_s"] \n\t"
 
-/* SSE: psllw */
+/* SSE: psllw (bits) */
 #define _mm_psllh(_D, _d, _s)                               \
 	"psllh %["#_D"h], %["#_d"h], %["#_s"] \n\t"         \
 	"psllh %["#_D"l], %["#_d"l], %["#_s"] \n\t"
 
-/* SSE: pslld */
+/* SSE: pslld (bits) */
 #define _mm_psllw(_D, _d, _s)                               \
 	"psllw %["#_D"h], %["#_d"h], %["#_s"] \n\t"         \
 	"psllw %["#_D"l], %["#_d"l], %["#_s"] \n\t"
 
-/* SSE: psllq */
+/* SSE: psllq (bits) */
 #define _mm_pslld(_D, _d, _s)                               \
 	"dsll %["#_D"h], %["#_d"h], %["#_s"] \n\t"          \
 	"dsll %["#_D"l], %["#_d"l], %["#_s"] \n\t"
 
-/* SSE: pslldq */
+/* SSE: pslldq (bytes) */
 #define _mm_psllq(_D, _d, _s, _s64, _tf)                    \
 	"subu %["#_tf"], %["#_s64"], %["#_s"] \n\t"         \
 	"dsrl %["#_tf"], %["#_d"l], %["#_tf"] \n\t"         \
@@ -57,22 +57,22 @@
 	"dsll %["#_D"l], %["#_d"l], %["#_s"] \n\t"          \
 	"or %["#_D"h], %["#_D"h], %["#_tf"] \n\t"
 
-/* SSE: psrlw */
+/* SSE: psrlw (bits) */
 #define _mm_psrlh(_D, _d, _s)                               \
 	"psrlh %["#_D"h], %["#_d"h], %["#_s"] \n\t"         \
 	"psrlh %["#_D"l], %["#_d"l], %["#_s"] \n\t"
 
-/* SSE: psrld */
+/* SSE: psrld (bits) */
 #define _mm_psrlw(_D, _d, _s)                               \
 	"psrlw %["#_D"h], %["#_d"h], %["#_s"] \n\t"         \
 	"psrlw %["#_D"l], %["#_d"l], %["#_s"] \n\t"
 
-/* SSE: psrlq */
+/* SSE: psrlq (bits) */
 #define _mm_psrld(_D, _d, _s)                               \
 	"dsrl %["#_D"h], %["#_d"h], %["#_s"] \n\t"          \
 	"dsrl %["#_D"l], %["#_d"l], %["#_s"] \n\t"
 
-/* SSE: psrldq */
+/* SSE: psrldq (bytes) */
 #define _mm_psrlq(_D, _d, _s, _s64, _tf)                    \
 	"subu %["#_tf"], %["#_s64"], %["#_s"] \n\t"         \
 	"dsll %["#_tf"], %["#_d"h], %["#_tf"] \n\t"         \
